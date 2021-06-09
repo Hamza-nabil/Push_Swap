@@ -27,42 +27,22 @@ static void	sort_tree(t_all *a)
 		execute_instruction(a, NULL, "sa", 1);
 }
 
-static void	clear_b(t_all *a, t_all *b, int med)
-{
-	while (b->stack)
-	{
-		if (b->stack->data > med)
-		{
-			while (a->last->data > b->stack->data)
-				execute_instruction(a, b, "rra", 1);
-			execute_instruction(a, b, "pa", 1);
-			while (a->stack->data > med)
-				execute_instruction(a, b, "ra", 1);
-		}
-		else
-		{
-			while (a->stack->data < b->stack->data)
-				execute_instruction(a, b, "ra", 1);
-			execute_instruction(a, b, "pa", 1);
-			while (a->last->data < med)
-				execute_instruction(a, b, "rra", 1);
-		}
-	}
-}
-
-static void	sort_five(t_all *a, t_all *b, int len)
+static void	sort_five(t_all *a, t_all *b)
 {
 	int	i;
-	int	med;
 
-	i = len - 3;
-	med = (len + 1) / 2;
-	if (a->stack->data == med)
-		execute_instruction(a, b, "ra", 1);
-	while (--i >= 0)
+	i = 0;
+	while (++i <= 2)
+	{
+		while (a->stack->data >= 3)
+			execute_instruction(a, b, "ra", 1);
 		execute_instruction(a, b, "pb", 1);
+	}
 	sort_tree(a);
-	clear_b(a, b, med);
+	if (b->stack->data < b->stack->next->data)
+		execute_instruction(a, b, "sb", 1);
+	execute_instruction(a, b, "pa", 1);
+	execute_instruction(a, b, "pa", 1);
 }
 
 void	ft_sort(t_all *a, t_all *b, int len)
