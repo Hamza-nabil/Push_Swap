@@ -25,7 +25,7 @@ void	ft_exit(char ***argv, int s)
 {
 	free_array(*argv);
 	free(*argv);
-	if (s == -1)
+	if (s == 0)
 		write(1, "Error\n", 6);
 	else if (s == 1)
 		write(1, "OK\n", 3);

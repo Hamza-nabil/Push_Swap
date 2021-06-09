@@ -23,10 +23,10 @@ int	main(int argc, char **argv)
 	while (argv[++i])
 		;
 	argc = i;
-	if (argc > 2)
+	if (argc > 1)
 	{
 		if (!read_arg(argc, argv, &a))
-			ft_exit(&argv, -1);
+			ft_exit(&argv, 0);
 		ft_sort(&a, &b, argc - 1);
 	}
 	free_stack(&a);

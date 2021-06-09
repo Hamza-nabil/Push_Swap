@@ -17,6 +17,7 @@ char	**get_arg(int argc, char **argv)
 	char	*tmp;
 	char	*array;
 	int		i;
+	char	**res;
 
 	i = -1;
 	array = ft_strdup("");
@@ -29,7 +30,9 @@ char	**get_arg(int argc, char **argv)
 		array = ft_strjoin(array, " ");
 		free(tmp);
 	}
-	return (ft_split(array, ' '));
+	res = ft_split(array, ' ');
+	free(array);
+	return (res);
 }
 
 int	get_num(char *arg, int *nb)
