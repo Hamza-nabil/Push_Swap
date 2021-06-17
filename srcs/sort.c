@@ -52,7 +52,7 @@ void	ft_sort(t_all *a, t_all *b, int len)
 		if (len <= 3)
 			sort_tree(a);
 		else if (len <= 5)
-			sort_five(a, b, len);
+			sort_five(a, b);
 		else
 			sort_a(a, b, 1, len);
 	}

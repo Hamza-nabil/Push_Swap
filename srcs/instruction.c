@@ -13,7 +13,7 @@
 #include "push_swap.h"
 
 /*************************SWAP***************************************/
-int	swap(t_all *a)
+static int	swap(t_all *a)
 {
 	int	tmp;
 
@@ -27,7 +27,7 @@ int	swap(t_all *a)
 }
 
 /*************************PUSH***************************************/
-int	push(t_all *a, t_all *b)
+static int	push(t_all *a, t_all *b)
 {
 	t_stack	*tmp;
 
@@ -51,7 +51,7 @@ int	push(t_all *a, t_all *b)
 
 /*************************Rotat***************************************/
 
-int	rotate(t_all *a)
+static int	rotate(t_all *a)
 {
 	t_stack	*tmp;
 
@@ -70,7 +70,7 @@ int	rotate(t_all *a)
 
 /*************************Reverse Rotat***************************************/
 
-int	reverse_rotate(t_all *a)
+static int	reverse_rotate(t_all *a)
 {
 	t_stack	*tmp;
 

@@ -35,26 +35,26 @@ $(OBJ_DIR)%.o:$(SRCS_DIR)%.c
 
 all:
 	@mkdir -p $(OBJ_DIR)
-	@$(MAKE) $(NAME) --no-print-directory
+	@make $(NAME) 
 
 make_libft:
-	@make -C libft/ --no-print-directory
+	@make -C libft/ 
 
 $(NAME): $(OBJ)  make_libft
 	@$(CC) $(CFLAGS) $(OBJ) ./libft/libft.a -o $(NAME)
 
 bonus:
 	@mkdir -p $(OBJ_DIR)
-	@$(MAKE) $(NAME_B) --no-print-directory
+	@make $(NAME_B) 
 
 $(NAME_B): $(OBJ_B)  make_libft
 	@$(CC) $(CFLAGS) $(OBJ_B) ./libft/libft.a   -o $(NAME_B)
 
 clean:
-	@make clean -C libft/ --no-print-directory
+	@make clean -C libft/ 
 	$(RM_DIR) $(OBJ_DIR)
 
 fclean: clean
 	rm -rf ${NAME_B} ${NAME}
-	@make fclean -C libft/ --no-print-directory
+	@make fclean -C libft/ 
 re: clean all

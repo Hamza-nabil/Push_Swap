@@ -35,7 +35,7 @@ char	**get_arg(int argc, char **argv)
 	return (res);
 }
 
-int	get_num(char *arg, int *nb)
+static int	get_num(char *arg, int *nb)
 {
 	long int	res;
 	int			sign;
@@ -79,7 +79,7 @@ int	fill_a(t_all *a, int *array, int *sorted, int ac)
 	int	index;
 	int	i;
 
-	heap_sort(sorted, ac - 1);
+	quick_sort(sorted, 0, ac - 2);
 	i = ac - 1;
 	while (--i >= 0)
 	{

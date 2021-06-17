@@ -6,7 +6,7 @@
 /*   By: hnabil <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 12:48:06 by hnabil            #+#    #+#             */
-/*   Updated: 2021/06/08 14:49:20 by hnabil           ###   ########.fr       */
+/*   Updated: 2021/06/10 14:25:23 by hnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,37 +44,36 @@ static void	swap(int *a, int *b)
 	*b = tmp;
 }
 
-static void	heapify(int *arr, int n, int i)
+int	partition (int *arr, int low, int high)
 {
-	int		largest;
-	int		l;
-	int		r;
+	int	pivot;
+	int	i;
+	int	j;
 
-	largest = i;
-	l = 2 * i + 1;
-	r = 2 * i + 2;
-	if (l < n && arr[l] > arr[largest])
-		largest = l;
-	if (r < n && arr[r] > arr[largest])
-		largest = r;
-	if (largest != i)
+	i = low;
+	j = low;
+	pivot = arr[high];
+	while (j < high)
 	{
-		swap(&arr[i], &arr[largest]);
-		heapify(arr, n, largest);
+		if (arr[j] < pivot)
+		{
+			swap(&arr[i], &arr[j]);
+			i++;
+		}
+		j++;
 	}
+	swap(&arr[i], &arr[high]);
+	return (i);
 }
 
-void	heap_sort(int *arr, int n)
+void	quick_sort(int *arr, int low, int high)
 {
 	int	i;
 
-	i = n / 2;
-	while (--i >= 0)
-		heapify(arr, n, i);
-	i = n;
-	while (--i)
+	if (low < high)
 	{
-		swap(&arr[0], &arr[i]);
-		heapify(arr, i, 0);
+		i = partition (arr, low, high);
+		quick_sort(arr, i + 1, high);
+		quick_sort(arr, low, i - 1);
 	}
 }

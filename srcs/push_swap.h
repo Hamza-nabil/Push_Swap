@@ -6,7 +6,7 @@
 /*   By: hnabil <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 17:07:37 by hnabil            #+#    #+#             */
-/*   Updated: 2021/06/08 12:47:08 by hnabil           ###   ########.fr       */
+/*   Updated: 2021/06/10 21:08:15 by hnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,19 @@ typedef struct s_all
 	t_stack			*last;
 }					t_all;
 
-int		execute_instruction(t_all *a, t_all *b, char *ins, int show);
-void	sort_b(t_all *a, t_all *b, int start, int end);
-void	sort_a(t_all *a, t_all *b, int start, int end);
-int		read_arg(int ac, char **av, t_all *a);
-void	heap_sort(int *arr, int n);
-int		is_sorted(t_stack *a, t_stack *b);
-int		get_next_line(int fd, char **line);
-void	ft_sort(t_all *a, t_all *b, int len);
 char	**get_arg(int argc, char **argv);
+
+int		execute_instruction(t_all *a, t_all *b, char *ins, int show);
+int		read_arg(int ac, char **av, t_all *a);
+void	quick_sort(int arr[], int low, int high);
+int		is_sorted(t_stack *a, t_stack *b);
+void	ft_sort(t_all *a, t_all *b, int len);
 void	sort_a(t_all *a, t_all *b, int start, int end);
+void	free_array(char **tab);
 void	free_stack(t_all *a);
 void	ft_stackadd(t_all *all, t_stack *new);
 t_stack	*ft_stacknew(int data);
-void	sort_b(t_all *a, t_all *b, int start, int end);
 void	ft_exit(char ***argv, int s);
-void	free_array(char **tab);
+int		get_next_line(int fd, char **line);
 
 #endif
